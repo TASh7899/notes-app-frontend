@@ -1,0 +1,47 @@
+# dependencies
+/node_modules/
+
+# production
+/build/
+/dist/
+
+# misc
+.DS_Store
+.env
+.env.local
+.env.*.local
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.vite/deps/
+
+# testing
+coverage/
+
+# editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# macOS & Linux
+*.swp
+*.lock
+
+# parcel-bundler cache
+.cache/
+
+# eslint cache
+.eslintcache
+
+# optional: if you're using React Native or Expo
+.expo/
+
+# TypeScript
+*.tsbuildinfo
+

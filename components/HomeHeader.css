@@ -1,0 +1,45 @@
+.home-header {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  font-family: 'inconsolata', sans-serif;
+}
+
+.loginbtn {
+  padding: 0.5rem;
+  width: 7rem;
+  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: normal ;
+  border-radius: 1rem;
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  border: none;
+}
+
+.home-header h1 {
+  font-weight: normal;
+  font-size: 2.5rem;
+}
+
+.home-header {
+  padding: 2rem 10rem 2rem 10rem;
+  display: flex;
+  align-items: center ;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 5000;
+  transition: all ease 0.2s;
+}
+
+.home-header.scroll {
+  border-bottom: 2px solid var(--color-background-light);
+  padding: 0.5rem 10rem 0.5rem 10rem;
+}
+
+
+.nav-links a {
+  color: #F7B2B7;
+  text-decoration: none;
+}
+

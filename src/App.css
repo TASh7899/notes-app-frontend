@@ -1,0 +1,27 @@
+:root {
+  --color-primary: #EDB497;
+  --color-secondary: #90f4c0;
+  --color-background: #0B0A07;
+  --color-background-dark: #010203;
+  --color-background-light: #29251A;
+  --color-text: #EEE5BF;
+  --color-text-dark: #c2bb9c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'inconsolata', sans-serif;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: 'inconsolata', sans-serif;
+  font-weight: normal;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
