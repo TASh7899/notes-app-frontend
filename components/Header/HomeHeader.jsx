@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
-import './HomeHeader.css'
 import { useEffect, useState } from "react";
+import styles from './HomeHeader.module.css';
 
 export default function Header() {
 
@@ -19,10 +19,10 @@ export default function Header() {
   const navigate = useNavigate();
 
   return (
-    <div className={`home-header ${scroll ? 'scroll' : ''}`}>
+    <div className={`${styles['home-header']} ${scroll ? styles.scroll: ''} `}>
       <h1>Notes</h1>
-      <nav className="nav-links">
-        <button className="loginbtn" onClick={() => navigate('/login')}>Log in</button>
+      <nav className={styles['nav-links']}>
+        <button className={styles['loginbtn']} onClick={() => navigate('/login')}>Log in</button>
       </nav>
     </div>
   )

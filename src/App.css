@@ -5,8 +5,12 @@
   --color-background-dark: #010203;
   --color-background-light: #29251A;
   --color-text: #EEE5BF;
-  --color-text-dark: #c2bb9c;
+  --color-text-dark: #B5AC86;
+  --error: #ff5232;
+  --success: #7bb35d;
 }
+
+
 
 * {
   margin: 0;

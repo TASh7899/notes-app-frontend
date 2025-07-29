@@ -2,12 +2,16 @@ import arrow from "../src/assets/arrow.svg"
 import book from "../src/assets/book.svg"
 import secure from "../src/assets/secure.svg"
 import thinking from "../src/assets/thinking.svg"
+import Header from '../components/Header/HomeHeader';
 
 import styles from  '../styles/Homepage.module.css';
 
 export default function HomePage() {
   return(
     <div className={styles.HomePage}>
+
+      <Header />
+
       <div className={styles['banner-main']}>
         <div className={styles.text}>
           <h1>Write it Down.</h1>
