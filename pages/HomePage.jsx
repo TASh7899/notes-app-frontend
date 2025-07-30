@@ -3,10 +3,27 @@ import book from "../src/assets/book.svg"
 import secure from "../src/assets/secure.svg"
 import thinking from "../src/assets/thinking.svg"
 import Header from '../components/Header/HomeHeader';
+import { useNavigate } from "react-router-dom";
+
+import { useEffect } from "react";
 
 import styles from  '../styles/Homepage.module.css';
 
+import api from '../axiosConfig.js';
+
 export default function HomePage() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    api.get('/api/user/check-session')
+    .then(res => {
+      if (res.data.loggedIn) {
+        navigate('/editor');
+      }
+    })
+  }, [navigate]);
+
+
   return(
     <div className={styles.HomePage}>
 
@@ -26,7 +43,7 @@ export default function HomePage() {
           </p>
         </div>
 
-          <button className={styles['signup-btn']}>Sign up now</button>
+          <button className={styles['signup-btn']} onClick={() => navigate('/signup')} >Sign up now</button>
         </div>
 
         <div className={styles.image}>
@@ -104,9 +121,8 @@ export default function HomePage() {
             <p>or just jotting — we've got your </p>
             <p>back.</p>
 
-          <button className={styles['signup-btn']}>Sign up now</button>
+          <button className={styles['signup-btn']} onClick={() => navigate('/signup')} >Sign up now</button>
 
-        
       </div>
 
 

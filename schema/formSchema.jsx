@@ -2,7 +2,7 @@ import * as yup from 'yup'
 
 export const formSchema = yup.object().shape({
   email: yup.string().email('Invalid email').required('Email is required'),
-  username: yup.string().required('name is required'),
+  username: yup.string().required('username is required'),
   password: yup.string().required('password is required').min(8, 'password must be at least 8 characters long')
     .matches(/[a-z]/, 'Must contain at least one lowercase letter')
     .matches(/[A-Z]/, 'Must contain at least one uppercase letter')

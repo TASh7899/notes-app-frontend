@@ -5,9 +5,16 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import TextInput from '../components/textInput/textInput';
 import PopUp from '../components/popup/PopUp';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import api from '../axiosConfig.js';
 
 export default function SignupPage() {
   const [showPop, setShowPop] = useState(false);
+  const [message, setMessage] = useState((''));
+  const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
 
   const {
     register,
@@ -15,25 +22,41 @@ export default function SignupPage() {
     formState: { errors },
   } = useForm({ resolver: yupResolver(formSchema) });
 
-  const onSubmit = (data) => {
-    console.log('form submitted : ', data);
-    setShowPop(true);
-    setTimeout(() => setShowPop(false), 3000);
+  const onSubmit = async (data) => {
+    try {
+      const res = await api.post('/api/user/signup', data)
+      console.log('form submitted : ', data);
+      setMessage(res.data.message);
+      setError(false);
+      setShowPop(true);
+      setTimeout(() => setShowPop(false), 1000);
+      setTimeout(() => navigate('/login'), 1000);
+
+    } catch (err) {
+      console.error(err);
+      setMessage(err?.response?.data?.error || "error");
+      setError(true);
+      setShowPop(true);
+      setTimeout(() => setShowPop(false), 2000);
+    }
   };
 
+
+
   return (
+    <>
+      {showPop && (
+        <PopUp
+          message={message}
+          isError={error}
+          onClose={() => setShowPop(false)}
+        />
+      )}
+
     <div className={styles.page}>
       <div className={styles.heading}>
         <h1>Sign up</h1>
       </div>
-
-      {showPop && (
-        <PopUp
-          message="Successfully submitted the form"
-          isError={false}
-          onClose={() => setShowPop(false)}
-        />
-      )}
 
       <div className={styles.formContainer}>
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -47,7 +70,7 @@ export default function SignupPage() {
               error={errors.username}
               placeholder="Enter your username"
             />
-            <p>Username should be unique</p>
+            <p className={styles.subtext}>Username should be unique</p>
           </div>
 
           <div className={styles.field}>
@@ -59,7 +82,7 @@ export default function SignupPage() {
               error={errors.email}
               placeholder="Enter your email"
             />
-            <p>Email should be valid</p>
+            <p className={styles.subtext} >Email should be valid</p>
           </div>
 
           <div className={styles.field}>
@@ -73,12 +96,12 @@ export default function SignupPage() {
               placeholder="Enter your password"
             />
             <div className={styles.passwordinfo}>
-              <p>Password should be 8 characters long</p>
-              <p>It should contain:</p>
-              <p> At least one uppercase character</p>
-              <p> At least one lowercase character</p>
-              <p> At least one digit</p>
-              <p> At least one special character such as !@#$%^&*</p>
+              <p className={styles.subtext} >Password should be 8 characters long</p>
+              <p className={styles.subtext}>It should contain:</p>
+              <p className={styles.subtext}> At least one uppercase character</p>
+              <p className={styles.subtext}> At least one lowercase character</p>
+              <p className={styles.subtext}> At least one digit</p>
+              <p className={styles.subtext}> At least one special character such as !@#$%^&*</p>
             </div>
           </div>
 
@@ -94,7 +117,7 @@ export default function SignupPage() {
               error={errors.confirmPassword}
               placeholder="Confirm password"
             />
-            <p>Both passwords should match</p>
+            <p className={styles.subtext}>Both passwords should match</p>
           </div>
 
           <button className={styles.formbutton} type="submit">Submit</button>
@@ -104,6 +127,7 @@ export default function SignupPage() {
         </form>
       </div>
     </div>
+  </>
   );
 }
 

@@ -2,19 +2,22 @@
 .page {
   display: flex;
   height: 100vh;
-  padding: 2rem;
+  padding: 1rem;
   gap: 2rem;
 }
 
 .heading {
   writing-mode: vertical-lr;
   transform: rotate(180deg);
-  padding: 1rem 0.5rem 1rem 0.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   text-orientation: mixed;
-  font-family: sans-serif;
   font-size: 3rem;
 
   border-left: 0.4rem solid var(--color-text);
+}
+
+.heading h1 {
+  font-family: sans-serif;
 }
 
 
@@ -22,12 +25,21 @@
   display: flex;
   gap: 2rem;
   flex-direction: column;
+  align-items: flex-start;
+  flex-grow: 1;
+  height: 100%;
 
+}
+
+.formContainer {
+  display: flex;
+  flex-grow: 1;
 }
 
 .input input {
   width: 60vw;
   font-size: 2.5rem;
+  font-family: 'inconsolata';
   color: var(--color-text);
   background-color: transparent;
   border: none;
@@ -36,10 +48,16 @@
 
 .confirmandbutton .formbutton {
   font-size: 2.5rem;
+  font-family: sans-serif;
   background-color: transparent;
   color: var(--color-text);
   border: none;
   border-bottom: 0.4rem solid var(--color-text);
+}
+
+.confirmandbutton {
+  margin-top: auto;
+  align-items: flex-end;
 }
 
 .confirmandbutton .formbutton:hover {
@@ -48,6 +66,7 @@
 }
 
 .input label{
+  font-family: sans-serif;
   font-size: 2.5rem;
 }
 
@@ -68,7 +87,8 @@
   align-items: flex-end;
 }
 
-.field p {
+.field .subtext {
+  font-family: sans-serif;
   color: var(--color-text-dark);
 }
 

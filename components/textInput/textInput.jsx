@@ -9,23 +9,26 @@ export default function TextInput({ label, register, name, error, className, typ
     if (error) {
       setShow(true);
 
-      const timer = setTimeout(() => setShow(false), 3000);
+      const timer = setTimeout(() => setShow(false), 2000);
 
       return () => clearTimeout(timer);
     }
   }, [error]);
 
   return (
+    <>
     <div className={className}>
       <input id={name} type={type} {...register(name)} {...rest} />
       <label htmlFor={name}>{label}</label>
+    </div>
+
       {show && error && (
         <PopUp
           message={error.message}
-          isError={true}
+          isError={error ? true : false}
           onClose={() => setShow(false)}
         />
       )}
-    </div>
+    </>
   );
 }
