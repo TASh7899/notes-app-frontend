@@ -42,7 +42,6 @@ export default function LoginPage() {
   const onSubmit = async (data) => {
     try {
       const res = await api.post('/api/user/login', data);
-      console.log('form submitted : ', data);
       setMessage(res.data.message);
       setError(false);
       setShowPop(true);

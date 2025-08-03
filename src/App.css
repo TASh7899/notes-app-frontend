@@ -4,8 +4,11 @@
   --color-background: #0B0A07;
   --color-background-dark: #010203;
   --color-background-light: #29251A;
+  --color-background-light-dark: #100f0b;
   --color-text: #EEE5BF;
   --color-text-dark: #B5AC86;
+  --color-text-dark2: #867F61;
+  --color-text-dark3: #585237;
   --error: #ff5232;
   --success: #7bb35d;
 }

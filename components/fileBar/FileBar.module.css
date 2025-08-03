@@ -1,0 +1,54 @@
+.fileBar {
+  width: 25vw;
+  background-color: var(--color-background-light);
+  padding: 10px;
+  border-radius: 1rem;
+}
+
+.fileBarHeader {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.fileBarHeaderBtns {
+  display: flex;
+  gap: 10px;
+}
+
+.fileBarHeaderHeading {
+  font-weight: normal;
+}
+
+
+.fileBarRootNotes {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border-bottom: 1px solid var(--color-text-dark);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.fileBarRootNotes button {
+  cursor: pointer;
+}
+
+.fileBarNoteBtns {
+  display: flex;
+  gap: 5px;
+}
+
+
+.fileBarIconButton {
+  background-color: transparent;
+  border: none ;
+
+}
+
+.fileBarIcons {
+  color: var(--color-text-dark);
+}
