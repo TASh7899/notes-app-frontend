@@ -6,6 +6,8 @@ import TextInput from '../components/textInput/textInput';
 import PopUp from '../components/popup/PopUp';
 import { useState, useEffect } from 'react';
 
+import { useUser } from '../context/UseUserContext.js';
+
 import api from '../axiosConfig.js'
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -14,6 +16,8 @@ export default function LoginPage() {
   const [showPop, setShowPop] = useState(false);
   const [message, setMessage] = useState('');
   const [error, setError] = useState(null);
+
+  const { setUsername } = useUser();
 
   const navigate = useNavigate();
 
@@ -46,6 +50,7 @@ export default function LoginPage() {
       setError(false);
       setShowPop(true);
       setTimeout(() => setShowPop(false), 2000);
+      setUsername(res.data.username);
       navigate('/editor');
 
     } catch (err) {

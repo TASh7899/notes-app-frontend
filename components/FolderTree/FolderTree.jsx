@@ -9,7 +9,7 @@ import TrashCan from '../../icons/deleteTrashCan.svg?react';
 import MoveFolder from '../../icons/moveFolder.svg?react';
 import RenameFolder from '../../icons/renameFolder.svg?react'
 
-export default function FolderTree({ folder, level=0, onAction, path = [] }) {
+export default function FolderTree({ folder, level=0, onAction, path = [], onSelectedNote }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const currentPath = [...path, folder.name];
@@ -34,7 +34,7 @@ export default function FolderTree({ folder, level=0, onAction, path = [] }) {
       {isOpen && (
         <div className={styles.folderChildren}>
         {folder.notes?.map((note) => (
-          <div key={note._id} className={styles.folderTreeNote}>
+          <div key={note._id} className={styles.folderTreeNote} onClick={() => onSelectedNote(note)} >
             <div>
               {note.title}
             </div>
@@ -49,7 +49,7 @@ export default function FolderTree({ folder, level=0, onAction, path = [] }) {
         ))}
 
         {folder.folders?.map((subfolder) => (
-          <FolderTree key={subfolder._id} folder={subfolder} path={currentPath} level={level + 1} onAction={onAction}  />
+          <FolderTree key={subfolder._id} folder={subfolder} path={currentPath} level={level + 1} onAction={onAction} onSelectedNote={onSelectedNote} />
         ))}
         </div>
       )}

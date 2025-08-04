@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+
 import styles from './FileBar.module.css';
 import api from '../../axiosConfig.js';
 import PopUp from '../popup/PopUp';
@@ -11,14 +12,13 @@ import RenameNote from '../../icons/renameNote.svg?react';
 import MoveNote from '../../icons/moveNote.svg?react';
 import TrashCan from '../../icons/deleteTrashCan.svg?react';
 
-export default function FileBar() {
+export default function FileBar({ onSelectedNote, reload, setReload }) {
   
   const [folder, setFolder] = useState([]);
   const [note, setNote] = useState([]);
   const [showPop, setShowPop] = useState(false);
   const [isError, setIsError] = useState(null);
   const [message, setMessage] = useState('');
-  const [reload, setReload] = useState(null);
 
   const prompt = usePrompt();
 
@@ -248,17 +248,17 @@ export default function FileBar() {
         </div>
 
         <div className={styles.fileBarContent}>
-          {folder && folder.map((f) => <FolderTree key={f._id} folder={f} onAction={onAction} />) }
+          {folder && folder.map((f) => <FolderTree key={f._id} folder={f} onAction={onAction} onSelectedNote={onSelectedNote} />) }
           {note && note.map(n => (
-            <div key={n._id} className={styles.fileBarRootNotes}>
+            <div key={n._id} className={styles.fileBarRootNotes} onClick={() => onSelectedNote(n)}>
             <div>
             {n.title}
             </div>
 
             <div className={styles.fileBarNoteBtns}>
-            <button onClick={() => onAction('rename-note', n, [])} className={styles.fileBarIconButton} ><RenameNote width={15} height={15} className={styles.fileBarIcons} /></button>
-            <button onClick={() => onAction('move-note', n, [])} className={styles.fileBarIconButton} ><MoveNote width={15} height={15} className={styles.fileBarIcons} /></button>
-            <button onClick={() => onAction('delete-note', n, [])} className={styles.fileBarIconButton} > <TrashCan width={15} height={15} className={styles.fileBarIcons} /> </button>
+            <button onClick={(e) => {e.stopPropagation(); onAction('rename-note', n, [])}} className={styles.fileBarIconButton}><RenameNote width={15} height={15} className={styles.fileBarIcons} /></button>
+            <button onClick={(e) => { e.stopPropagation(); onAction('move-note', n, [])}} className={styles.fileBarIconButton}><MoveNote width={15} height={15} className={styles.fileBarIcons} /></button>
+            <button onClick={(e) => { e.stopPropagation(); onAction('delete-note', n, [])}} className={styles.fileBarIconButton}> <TrashCan width={15} height={15} className={styles.fileBarIcons} /> </button>
             </div>
 
             </div>

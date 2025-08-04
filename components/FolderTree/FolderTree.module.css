@@ -1,6 +1,7 @@
 
 .folderTree {
   margin-top: 0.3rem;
+  cursor: pointer;
 }
 
 .folderHeader {
@@ -36,6 +37,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.folderTreeNote:hover {
+  color: var(--color-primary);
+  font-style: italic;
 }
 
 .folderTreeNoteBtns {
