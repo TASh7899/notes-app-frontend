@@ -65,6 +65,7 @@ export default function NoteEditor({ selectedNote, setSelected, onChange, onDele
       setIsError(false);
       setShowPop(true);
       setTimeout(() => setShowPop(false), 2000);
+      setSelected(null);
       if (onChange) onChange();
       if (onDelete) onDelete();
     } catch (err) {

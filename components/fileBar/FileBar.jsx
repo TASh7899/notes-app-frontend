@@ -258,7 +258,7 @@ export default function FileBar({ onSelectedNote, reload, setReload }) {
             <div className={styles.fileBarNoteBtns}>
             <button onClick={(e) => {e.stopPropagation(); onAction('rename-note', n, [])}} className={styles.fileBarIconButton}><RenameNote width={15} height={15} className={styles.fileBarIcons} /></button>
             <button onClick={(e) => { e.stopPropagation(); onAction('move-note', n, [])}} className={styles.fileBarIconButton}><MoveNote width={15} height={15} className={styles.fileBarIcons} /></button>
-            <button onClick={(e) => { e.stopPropagation(); onAction('delete-note', n, [])}} className={styles.fileBarIconButton}> <TrashCan width={15} height={15} className={styles.fileBarIcons} /> </button>
+            <button onClick={(e) => { e.stopPropagation(); onAction('delete-note', n, []); onSelectedNote(null); }} className={styles.fileBarIconButton}> <TrashCan width={15} height={15} className={styles.fileBarIcons} /> </button>
             </div>
 
             </div>
