@@ -1,12 +1,31 @@
-# React + Vite
+# Notes App – Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend for a full-featured notes application built using **React**. It provides a responsive, user-friendly interface for creating, editing, organizing, and managing notes. The app supports **Markdown formatting**, folder organization, and server-side note persistence.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Built with **React**
+- **Markdown** support for formatting notes
+- **Folder structure** to organize notes
+- Responsive and interactive UI
+- Connects to a Node.js backend API
+- Notes are saved and retrieved from the server
+- Support for user authentication (via backend)
+- Auto-save functionality at regular intervals
+- Pop-up notifications for actions like save, delete, etc.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## API Communication
+
+All requests are sent to the backend (Node.js + Express) using **Axios**. The Axios instance is configured in `axiosConfig.js` to use the base URL provided via environment variables.
+
+---
+
+## Markdown Support
+
+The note editor allows full Markdown syntax, which is rendered accordingly. You can use headers, lists, code blocks, links, and more inside your notes.
+
+
