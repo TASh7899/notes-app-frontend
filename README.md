@@ -20,7 +20,7 @@ This is the frontend for a full-featured notes application built using **React**
 
 ## API Communication
 
-All requests are sent to the backend (Node.js + Express) using **Axios**. The Axios instance is configured in `axiosConfig.js` to use the base URL provided via environment variables.
+All requests are sent to the backend (Node.js + Express) using **Axios**. The Axios instance is configured in `axiosConfig.js`.
 
 ---
 
