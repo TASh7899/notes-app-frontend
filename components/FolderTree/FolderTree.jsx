@@ -23,7 +23,7 @@ export default function FolderTree({ folder, level=0, onAction, path = [], onSel
 
         <div className={styles.folderTreeFolderBtns}>
         <button onClick={() => onAction('rename', null, currentPath)} className={styles.folderTreeButton} ><RenameNote width={15} height={15} className={styles.folderTreeIcons} /></button>
-        <button onClick={() => onAction('delete', null, currentPath)} className={styles.folderTreeButton} ><TrashCan width={15} height={15} className={styles.folderTreeIcons}/></button>
+        <button onClick={() => {onAction('delete', null, currentPath); onSelectedNote(null) }} className={styles.folderTreeButton} ><TrashCan width={15} height={15} className={styles.folderTreeIcons}/></button>
         <button onClick={() => onAction('move', null, currentPath)} className={styles.folderTreeButton}><MoveFolder width={15} height={15} className={styles.folderTreeIcons}/></button>
         <button onClick={() => onAction('add-folder', null, currentPath)} className={styles.folderTreeButton}><AddFolder width={15} height={15} className={styles.folderTreeIcons}/></button>
         <button onClick={() => onAction('add-note', null, currentPath)} className={styles.folderTreeButton}><AddNote width={15} height={15} className={styles.folderTreeIcons}/></button>
@@ -40,9 +40,9 @@ export default function FolderTree({ folder, level=0, onAction, path = [], onSel
             </div>
 
             <div className={styles.folderTreeNoteBtns}>
-            <button onClick={() => onAction('rename-note', note, currentPath)} className={styles.folderTreeButton} ><RenameNote width={15} height={15} className={styles.folderTreeIcons} /></button>
-            <button onClick={() => onAction('move-note', note, currentPath)} className={styles.folderTreeButton}><MoveNote width={15} height={15} className={styles.folderTreeIcons} /></button>
-            <button onClick={() => onAction('delete-note', note, currentPath)}className={styles.folderTreeButton} ><TrashCan width={15} height={15} className={styles.folderTreeIcons} /></button>
+            <button onClick={(e) => {e.stopPropagation(); onAction('rename-note', note, currentPath) }} className={styles.folderTreeButton} ><RenameNote width={15} height={15} className={styles.folderTreeIcons} /></button>
+            <button onClick={(e) => {e.stopPropagation(); onAction('move-note', note, currentPath)}} className={styles.folderTreeButton}><MoveNote width={15} height={15} className={styles.folderTreeIcons} /></button>
+            <button onClick={(e) => { e.stopPropagation() ;onAction('delete-note', note, currentPath); onSelectedNote(null)}}className={styles.folderTreeButton} ><TrashCan width={15} height={15} className={styles.folderTreeIcons} /></button>
             </div>
 
           </div>
