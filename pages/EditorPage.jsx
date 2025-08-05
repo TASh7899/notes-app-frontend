@@ -2,16 +2,33 @@ import EditorHeader from "../components/Header/EditorHeader.jsx";
 import NoteEditor from "../components/noteEditor/NoteEditor.jsx";
 import FileBar from "../components/fileBar/FileBar.jsx";
 import ReadNote from "../components/readNote/readNote.jsx";
+import api from '../axiosConfig.js';
 
 import styles from '../styles/EditorPage.module.css';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useUser } from "../context/UseUserContext.js";
+import { useParams } from "react-router-dom";
 
 export default function EditorPage() {
   const [selected, setSelected] = useState(null);
   const [reload, setReload] = useState(false);
   const [readMode, setReadMode] = useState(false);
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    if (id) {
+      api.get(`api/notes/${id}`)
+      .then((res) => {
+        setSelected(res.data);
+        setReadMode(false);
+      })
+      .catch(err => {
+        console.log(err?.data?.response?.error);
+      })
+    }
+  }, [id]);
 
   const { username } = useUser();
 

@@ -1,0 +1,71 @@
+.indexPage {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+.indexPageHeading {
+  font-size: 3rem;
+  border-bottom: 2px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.indexPageData {
+  width: 70vw;
+  margin: auto 0;
+  align-items: center;
+}
+
+.indexPageFolderHeading {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+  border-bottom: 1px solid var(--color-primary);
+}
+
+.indexPageRootNoteHeading {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+  border-bottom: 1px solid var(--color-primary);
+}
+.indexPageNote {
+  margin: 0.5rem;
+  width: 20%;
+}
+
+.indexPageNote:hover {
+  border-bottom: 1px solid var(--color-text);
+  cursor: pointer;
+}
+
+.indexPageNoteLi {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+
+.indexPageEditButton {
+  background-color: transparent;
+  border: none;
+  color: var(--color-text);
+  cursor: pointer;
+  padding: 2px;
+}
+
+.indexPageEditButton:hover {
+  background-color: var(--color-text);
+  color: var(--color-background);
+  border-radius: 4px;
+}
+
+.indexPageRootNoteDiv {
+  margin-bottom: 3rem;
+}
+
+.indexPageFolderDiv {
+  margin-bottom: 3rem;
+}
+
