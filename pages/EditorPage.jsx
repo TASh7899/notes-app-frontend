@@ -19,7 +19,7 @@ export default function EditorPage() {
 
   useEffect(() => {
     if (id) {
-      api.get(`api/notes/${id}`)
+      api.get(`/api/notes/${id}`)
       .then((res) => {
         setSelected(res.data);
         setReadMode(false);
